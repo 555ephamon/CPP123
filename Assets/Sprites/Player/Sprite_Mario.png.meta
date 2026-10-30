@@ -236,7 +236,9 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationMethod: 0
   spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -276,6 +278,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -302,7 +317,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_1
+      name: _Mario_Walk_1
       rect:
         serializedVersion: 2
         x: 20
@@ -324,7 +339,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_2
+      name: _Mario_Walk_2
       rect:
         serializedVersion: 2
         x: 37
@@ -456,7 +471,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_8
+      name: _Mario_Jump_1
       rect:
         serializedVersion: 2
         x: 144
@@ -1314,7 +1329,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_47
+      name: _Mario_Attack_1
       rect:
         serializedVersion: 2
         x: 61
@@ -1336,7 +1351,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_48
+      name: _Mario_Attack_2
       rect:
         serializedVersion: 2
         x: 79
@@ -1358,7 +1373,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_49
+      name: _Mario_Attack_3
       rect:
         serializedVersion: 2
         x: 97
@@ -1446,7 +1461,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_53
+      name: _Mario_Air_Attack_1
       rect:
         serializedVersion: 2
         x: 185
@@ -1468,7 +1483,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_54
+      name: _Mario_Air_Attack_2
       rect:
         serializedVersion: 2
         x: 218
@@ -1490,7 +1505,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_55
+      name: _Mario_Air_Attack_3
       rect:
         serializedVersion: 2
         x: 253
@@ -1512,7 +1527,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_56
+      name: _Mario_Air_Attack_4
       rect:
         serializedVersion: 2
         x: 286
@@ -1534,7 +1549,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_57
+      name: _Mario_Air_Attack_5
       rect:
         serializedVersion: 2
         x: 315
@@ -1556,7 +1571,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Mario_58
+      name: _Mario_Air_Attack_6
       rect:
         serializedVersion: 2
         x: 345
@@ -1637,7 +1652,6 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Sprite_Mario_1: 7535359878243092818
       Sprite_Mario_10: 8537440539389071336
       Sprite_Mario_11: 1357806328429647872
       Sprite_Mario_12: -598077030875622236
@@ -1648,7 +1662,6 @@ TextureImporter:
       Sprite_Mario_17: -8647316737487248356
       Sprite_Mario_18: 4567098361401889599
       Sprite_Mario_19: 7479211179968422096
-      Sprite_Mario_2: -3905991941800648080
       Sprite_Mario_20: -1941499065591448453
       Sprite_Mario_21: -4629119407898994041
       Sprite_Mario_22: -5511660270334715914
@@ -1678,26 +1691,28 @@ TextureImporter:
       Sprite_Mario_44: 1329661449039804243
       Sprite_Mario_45: 3354623957607304124
       Sprite_Mario_46: 7368133104323931243
-      Sprite_Mario_47: 3302078408146908689
-      Sprite_Mario_48: -4040994371160570336
-      Sprite_Mario_49: 2070263079612885921
       Sprite_Mario_5: -7207716073158996441
       Sprite_Mario_50: -5021473000565013323
       Sprite_Mario_51: -3917910848853407703
       Sprite_Mario_52: 2024578721505582386
-      Sprite_Mario_53: -991126873710766664
-      Sprite_Mario_54: -2451452407061476743
-      Sprite_Mario_55: -9079682761693699110
-      Sprite_Mario_56: 102199271187479275
-      Sprite_Mario_57: 4596178438584576817
-      Sprite_Mario_58: -223910129502012368
       Sprite_Mario_59: -7734174553045002093
       Sprite_Mario_6: 5693412132100505836
       Sprite_Mario_60: 1622122130505264950
       Sprite_Mario_7: -1236749345658543323
-      Sprite_Mario_8: -5672653749854861051
       Sprite_Mario_9: 3387244394707617170
       _MarioIdle: 4638078165498462608
+      _Mario_Air_Attack_1: -991126873710766664
+      _Mario_Air_Attack_2: -2451452407061476743
+      _Mario_Air_Attack_3: -9079682761693699110
+      _Mario_Air_Attack_4: 102199271187479275
+      _Mario_Air_Attack_5: 4596178438584576817
+      _Mario_Air_Attack_6: -223910129502012368
+      _Mario_Attack_1: 3302078408146908689
+      _Mario_Attack_2: -4040994371160570336
+      _Mario_Attack_3: 2070263079612885921
+      _Mario_Jump_1: -5672653749854861051
+      _Mario_Walk_1: 7535359878243092818
+      _Mario_Walk_2: -3905991941800648080
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
