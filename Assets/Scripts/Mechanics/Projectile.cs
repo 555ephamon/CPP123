@@ -1,0 +1,60 @@
+using UnityEngine;
+
+[RequireComponent(typeof(Rigidbody2D))]
+
+public class Projectile : MonoBehaviour
+{
+    [SerializeField]
+    private float lifetime = 5.0f;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField]
+    private Vector2 initVelocity;
+
+    void Start()
+    {
+        Destroy(gameObject, lifetime);
+
+        if (initVelocity != Vector2.zero)
+        {
+            SetVelocity(initVelocity);
+        }
+ 
+    }
+
+    // Update is called once per frame
+    public void SetVelocity(Vector2 velocity)
+    {
+        GetComponent<Rigidbody2D>().linearVelocity = velocity;
+    }
+
+    //collision detection code
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 3)
+            Destroy(gameObject, 0);
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+    }
+}

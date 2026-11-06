@@ -1,9 +1,9 @@
-using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
 
 //ALWAYS REQUIRE THESE COMPONENTS
 [RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer), typeof(BoxCollider2D))]
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Animator), typeof(GroundCheck))]
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,22 +11,85 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed = 5f;
     public float jumpForce = 7f;
+    public int maxJumps = 2;
+    public float initialPowerupDuration = 5;
 
+  
     #endregion
-    #region Ground Check
 
-   
-    public LayerMask groundLayer;
-    public float groundCheckRadius = 0.01f;
-    private bool isGrounded;
+    #region Getters and Setters
+    [SerializeField]
 
-    private Vector2 CalculateGroundCheckPos()
+
+    //C++ style getter/setter
+
+    //public void SetLives(int currentLives)
+    //{
+    //    if (currentLives > maxLives)
+    //    {
+    //        lives = maxLives;
+    //    }
+    //    else if (currentLives < 0) 
+    //    {
+    //        lives = 0;
+    //        //game over here
+    //    }
+    //    else if (lives > currentLives)
+    //    {
+    //        lives = currentLives;
+    //        //lost a life - respawn
+    //    }
+    //}
+
+    //public int GetLives()
+    //{
+    //    return lives;   
+    //}
+    private int maxLives = 9;
+    private int _lives = 3; //internal lives value
+    public int lives
     {
-        Bounds bounds = bc.bounds;
-        return new Vector2(bounds.center.x, bounds.min.y);
+        get { return _lives; }
+        set
+        {
+            if (value >= maxLives)
+            {
+                _lives = maxLives;
+            }
+            else if (value < 0)
+            {
+                lives = 0;
+                //game over
+                Debug.Log("Game Over");
+            }
+            else if (lives > value)
+            {
+                _lives = value;
+                //respawn
+                Debug.Log("Respawn");
+            }
+            else
+            {
+                _lives = value;
+            }
+            Debug.Log($"Lives were changed to {_lives}");
+        }
+    } //finalized life gating
+
+    private int _score;
+
+    public int score
+    {
+        get { return _score; }
+        set
+        {
+            _score = value;
+            Debug.Log($"Lives were changed to {_lives}");
+        }
     }
 
     #endregion
+
 
     #region Component References
 
@@ -34,10 +97,19 @@ public class PlayerController : MonoBehaviour
     private SpriteRenderer sr;
     private BoxCollider2D bc;
     private Animator anim;
+    private GroundCheck gndChk;
 
     #endregion
 
+    #region Properties
+    private int currentJumps = 0;
+    private float currentPowerupDuration = 0;
+    private float initialJumpForce;
+    private float powerupJumpForce = 15;
+    private Coroutine jumpForceCoroutine = null;
 
+    
+    #endregion
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -47,19 +119,26 @@ public class PlayerController : MonoBehaviour
         sr= GetComponent<SpriteRenderer>();
         bc = GetComponent<BoxCollider2D>();
         anim= GetComponent<Animator>();
+        gndChk = GetComponent<GroundCheck>();
+
+        gndChk.Init(bc, rb);
 
         rb.sleepMode = RigidbodySleepMode2D.NeverSleep;
+
+        initialJumpForce = jumpForce;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (rb.linearVelocityY <= 0f)
-        {
-            isGrounded = Physics2D.OverlapCircle(CalculateGroundCheckPos(), groundCheckRadius, groundLayer);
-        }
+        //if (rb.linearVelocityY <= 0f)
+        //{
+        //    bool isGroundedthisFrame = gndChk.CheckGround();
+        //}
 
         //FILL REFERENCE
+
+        gndChk.CheckGround();
 
         float moveX = Input.GetAxisRaw("Horizontal");
         bool jumpPressed = Input.GetButtonDown("Jump");
@@ -67,15 +146,18 @@ public class PlayerController : MonoBehaviour
 
         rb.linearVelocityX = moveX * moveSpeed;
 
-        if (jumpPressed && isGrounded)
+        if (jumpPressed && currentJumps < maxJumps)
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            isGrounded = false;
+            currentJumps++;
+            gndChk.SetGroundAfterJump();
+            rb.linearVelocityY = 0f;
+            rb.AddForceY(jumpForce, ForceMode2D.Impulse);
         }
 
         if (moveX != 0f) SpriteFlip(moveX);
+        if (gndChk.isGrounded) currentJumps = 0;
 
-        anim.SetBool("isGrounded", isGrounded);
+        anim.SetBool("isGrounded", gndChk.isGrounded);
         anim.SetFloat("moveX", Mathf.Abs(moveX));
 
         if (attackPressed)
@@ -99,4 +181,30 @@ public class PlayerController : MonoBehaviour
     //   }
     //}
 
+    public void JumpForceChange()
+    {
+        if (jumpForceCoroutine != null)
+        {
+            StopCoroutine(jumpForceCoroutine);
+            jumpForceCoroutine = null;
+            jumpForce = initialJumpForce;
+        }
+        jumpForceCoroutine = StartCoroutine(JumpForceChangeCoroutine());
+
+        IEnumerator JumpForceChangeCoroutine()
+        {
+            currentPowerupDuration = initialPowerupDuration + currentPowerupDuration;
+            jumpForce = powerupJumpForce;
+
+            while (currentPowerupDuration > 0)
+            {
+                currentPowerupDuration -= Time.deltaTime;
+                Debug.Log($"Jump Power Up time remaining {currentPowerupDuration}");
+                yield return null;
+            }
+            jumpForce = initialJumpForce;
+            jumpForceCoroutine = null;
+            currentPowerupDuration = 0f;
+        }
+    }
 }
