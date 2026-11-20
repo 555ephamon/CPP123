@@ -2132,7 +2132,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 1024
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -4060,50 +4060,6 @@ TextureImporter:
       bones: []
       spriteID: 78df0d418b702c4a0800000000000000
       internalID: -6574684018802885241
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: _Player_Projectile_1
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 557
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d86a466d86953fad0800000000000000
-      internalID: -2669691847292180851
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: _Player_Projectile_2
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 557
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3915b7d91c2864c90800000000000000
-      internalID: -7185912387340643949
       vertices: []
       indices: 
       edges: []
@@ -8553,7 +8509,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_290
+      name: enemy_projectile
       rect:
         serializedVersion: 2
         x: 801
@@ -9521,7 +9477,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_334
+      name: turret_shoot_0
       rect:
         serializedVersion: 2
         x: 800
@@ -9543,7 +9499,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_335
+      name: turret_shoot_1
       rect:
         serializedVersion: 2
         x: 823
@@ -9565,7 +9521,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_336
+      name: turret_shoot_2
       rect:
         serializedVersion: 2
         x: 852
@@ -9587,7 +9543,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_337
+      name: turret_idle_0
       rect:
         serializedVersion: 2
         x: 881
@@ -12183,15 +12139,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_455
+      name: _koopa_turn_0
       rect:
         serializedVersion: 2
         x: 9
         y: 123
         width: 16
         height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -12205,15 +12161,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_456
+      name: _koopa_walk_1
       rect:
         serializedVersion: 2
         x: 27
         y: 123
         width: 16
         height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -12227,15 +12183,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_457
+      name: _koopa_walk_2
       rect:
         serializedVersion: 2
         x: 46
         y: 123
         width: 16
         height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -12447,15 +12403,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_467
+      name: _koopa_death_0
       rect:
         serializedVersion: 2
         x: 250
         y: 137
         width: 16
         height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -13151,15 +13107,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sprite_Enemies_499
+      name: _koopa_squish_0
       rect:
         serializedVersion: 2
         x: 250
         y: 120
         width: 16
         height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -17286,6 +17242,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Sprite_Enemies_86
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 557
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb6f6594d88853646a3e67ef911648c1
+      internalID: 1709306393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: _Fireball
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 557
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab0f767343fa16040bd7e04f46772491
+      internalID: 665578818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -17515,7 +17515,6 @@ TextureImporter:
       Sprite_Enemies_288: -7199059520936841643
       Sprite_Enemies_289: 936871272392101253
       Sprite_Enemies_29: 5637884585264908924
-      Sprite_Enemies_290: -675099761668843415
       Sprite_Enemies_291: 2634411856299483029
       Sprite_Enemies_292: 5163059118326160480
       Sprite_Enemies_293: -147000117367987440
@@ -17564,10 +17563,6 @@ TextureImporter:
       Sprite_Enemies_331: -2074944620527126796
       Sprite_Enemies_332: -5660035332088033470
       Sprite_Enemies_333: -7888178152231183674
-      Sprite_Enemies_334: 6927981411972597962
-      Sprite_Enemies_335: 4627375648895073383
-      Sprite_Enemies_336: 695433566626481274
-      Sprite_Enemies_337: 6826037723698911918
       Sprite_Enemies_338: 8761235641639183874
       Sprite_Enemies_339: -1521151032509392861
       Sprite_Enemies_34: -8577990633489452866
@@ -17698,9 +17693,6 @@ TextureImporter:
       Sprite_Enemies_452: -1343037756408529362
       Sprite_Enemies_453: 765632271854523857
       Sprite_Enemies_454: -4679266561285187615
-      Sprite_Enemies_455: -3308117943003608857
-      Sprite_Enemies_456: 4096748978658626181
-      Sprite_Enemies_457: -4655428008840287938
       Sprite_Enemies_458: -4978260438847950106
       Sprite_Enemies_459: 8586962421401669945
       Sprite_Enemies_46: -7065418871120813663
@@ -17711,7 +17703,6 @@ TextureImporter:
       Sprite_Enemies_464: 7913287385506010168
       Sprite_Enemies_465: 7964933677537021469
       Sprite_Enemies_466: 8915639912924884548
-      Sprite_Enemies_467: -8320605450497437263
       Sprite_Enemies_468: -6344966185704219216
       Sprite_Enemies_469: 7294370580460699064
       Sprite_Enemies_47: -3123151676252318898
@@ -17746,7 +17737,6 @@ TextureImporter:
       Sprite_Enemies_496: -41123353217939383
       Sprite_Enemies_497: 2616282857753107902
       Sprite_Enemies_498: 7581821725142446528
-      Sprite_Enemies_499: -6086775892676988321
       Sprite_Enemies_5: -8418568836476118505
       Sprite_Enemies_50: -1605364701122387928
       Sprite_Enemies_500: 7950262757088144532
@@ -17974,6 +17964,7 @@ TextureImporter:
       Sprite_Enemies_83: -7750778704940417621
       Sprite_Enemies_84: 7020787362663800049
       Sprite_Enemies_85: -6574684018802885241
+      Sprite_Enemies_86: 1709306393
       Sprite_Enemies_88: -5709072872950518472
       Sprite_Enemies_89: 1790661336946998242
       Sprite_Enemies_9: -1403785383596086482
@@ -17987,8 +17978,17 @@ TextureImporter:
       Sprite_Enemies_97: -5235741533605767461
       Sprite_Enemies_98: -3146763840220451440
       Sprite_Enemies_99: 3848975548304371034
-      _Player_Projectile_1: -2669691847292180851
-      _Player_Projectile_2: -7185912387340643949
+      _Fireball: 665578818
+      _koopa_death_0: -8320605450497437263
+      _koopa_squish_0: -6086775892676988321
+      _koopa_turn_0: -3308117943003608857
+      _koopa_walk_1: 4096748978658626181
+      _koopa_walk_2: -4655428008840287938
+      enemy_projectile: -675099761668843415
+      turret_idle_0: 6826037723698911918
+      turret_shoot_0: 6927981411972597962
+      turret_shoot_1: 4627375648895073383
+      turret_shoot_2: 695433566626481274
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

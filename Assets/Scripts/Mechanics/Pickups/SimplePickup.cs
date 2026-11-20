@@ -32,6 +32,7 @@ public class SimplePickup : MonoBehaviour
             }
 
             Destroy(gameObject);
+
         }
 
     }

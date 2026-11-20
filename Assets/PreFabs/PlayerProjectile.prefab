@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1982189446485818743}
   - component: {fileID: 5225536122734018495}
   m_Layer: 0
-  m_Name: _Player_Projectile_2
+  m_Name: PlayerProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,9 +82,9 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 793347251
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -7185912387340643949, guid: c94669d87392da34f9b8bdb321e83c52, type: 3}
+  m_Sprite: {fileID: 665578818, guid: c94669d87392da34f9b8bdb321e83c52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -135,7 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   lifetime: 5
-  initVelocity: {x: 0, y: 0}
+  faction: 0
+  damage: 5
 --- !u!58 &5225536122734018495
 CircleCollider2D:
   m_ObjectHideFlags: 0

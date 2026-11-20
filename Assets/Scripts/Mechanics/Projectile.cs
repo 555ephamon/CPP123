@@ -1,24 +1,21 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-
 public class Projectile : MonoBehaviour
 {
     [SerializeField]
     private float lifetime = 5.0f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField]
-    private Vector2 initVelocity;
 
+    [SerializeField]
+    private ProjectileFaction faction = ProjectileFaction.Player;
+
+    [SerializeField]
+    private int damage = 5;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Destroy(gameObject, lifetime);
-
-        if (initVelocity != Vector2.zero)
-        {
-            SetVelocity(initVelocity);
-        }
- 
+        Destroy(gameObject, lifetime);        
     }
 
     // Update is called once per frame
@@ -30,9 +27,20 @@ public class Projectile : MonoBehaviour
     //collision detection code
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == 3)
-            Destroy(gameObject, 0);
+        if (faction == ProjectileFaction.Player && collision.gameObject.CompareTag("Enemy"))
+        {
+            // Handle collision with enemy
+            collision.gameObject.GetComponent<BaseEnemy>().TakeDamage(damage, DamageType.Default);
+            Destroy(gameObject);
+        }
+        else if (faction == ProjectileFaction.Enemy && collision.gameObject.CompareTag("Player"))
+        {
+            // Handle collision with player
+            collision.gameObject.GetComponent<PlayerController>().lives--;
+            Destroy(gameObject);
+        }
     }
+
     private void OnCollisionStay2D(Collision2D collision)
     {
         
@@ -57,4 +65,10 @@ public class Projectile : MonoBehaviour
     {
         
     }
+}
+
+public enum ProjectileFaction
+{
+    Player,
+    Enemy
 }
