@@ -66,6 +66,7 @@ public class WalkerEnemy : BaseEnemy
         else
         {
             anim.SetTrigger("death");
+            anim.SetTrigger("death");
         }
 
         base.TakeDamage(damage, damageType);

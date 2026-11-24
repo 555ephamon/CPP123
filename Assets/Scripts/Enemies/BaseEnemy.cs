@@ -11,6 +11,7 @@ public class BaseEnemy : MonoBehaviour
     protected Animator anim;
     protected int health;
     [SerializeField] protected int maxHealth = 3;
+
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public virtual void Start()

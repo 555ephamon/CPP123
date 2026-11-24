@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Shoot : MonoBehaviour
@@ -8,6 +9,7 @@ public class Shoot : MonoBehaviour
     [SerializeField] private Transform spawnPointLeft;
     [SerializeField] private Transform spawnPointRight;
     [SerializeField] private Projectile projectilePrefab;
+    public Action<Vector2> OnShotFired;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,11 +43,13 @@ public class Shoot : MonoBehaviour
         {
             curProjectile = Instantiate(projectilePrefab, spawnPointRight.position, Quaternion.identity);
             curProjectile.SetVelocity(initShotVelocity);
+            OnShotFired?.Invoke(initShotVelocity);
         }
         else
         {
             curProjectile = Instantiate(projectilePrefab, spawnPointLeft.position, Quaternion.identity);
             curProjectile.SetVelocity(new Vector2(-initShotVelocity.x, initShotVelocity.y));
+            OnShotFired?.Invoke(new Vector2(-initShotVelocity.x, initShotVelocity.y));
         }
     }
 }
